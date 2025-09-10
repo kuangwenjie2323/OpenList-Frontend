@@ -4,6 +4,12 @@ import solidPlugin from "vite-plugin-solid"
 import legacy from "@vitejs/plugin-legacy"
 import { dynamicBase } from "vite-plugin-dynamic-base"
 import { viteStaticCopy } from "vite-plugin-static-copy"
+export default async () => {
+  // 读取 public/settings.json 文件
+  const settingsPath = path.resolve(__dirname, "public/settings.json");
+  const configRaw = await fs.readFile(settingsPath, "utf8");
+  const config = JSON.parse(configRaw);
+  console.log(config);
 
 export default defineConfig({
   resolve: {
