@@ -1,0 +1,14 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+
+export default function handler(req: VercelRequest, res: VercelResponse) {
+  res.status(200).json({
+    title: "PikPak Drive",
+    description: "OpenList on Vercel",
+    storage: {
+      type: "webdav",
+      url: process.env.WEBDAV_URL,
+      username: process.env.WEBDAV_USER,
+      password: process.env.WEBDAV_PASS
+    }
+  });
+}
