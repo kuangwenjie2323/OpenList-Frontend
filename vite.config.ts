@@ -13,6 +13,10 @@ export default defineConfig({
       "solid-icons": path.resolve(__dirname, "node_modules/solid-icons"),
     },
   },
+  const res = await fetch("/api/settings");
+  const config = await res.json();
+  console.log(config);
+
   plugins: [
     solidPlugin(),
     legacy({
